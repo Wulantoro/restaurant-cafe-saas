@@ -21,3 +21,7 @@ frontend/out/
 .DS_Store
 .vscode/
 .idea/
+
+# AI & Local Documentation Exclusions
+AGENTS.md
+docs/
