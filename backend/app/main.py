@@ -18,6 +18,8 @@ from app.core.exceptions import (
 )
 from app.modules.iam.router import router as iam_router
 from app.modules.tenancy.router import router as tenancy_router
+from app.modules.catalog.router import router as catalog_router
+from app.modules.inventory.router import router as inventory_router
 
 setup_logging()
 logger = logging.getLogger("rcms.main")
@@ -54,6 +56,8 @@ app.add_exception_handler(RequestValidationError, validation_exception_handler)
 
 app.include_router(iam_router, prefix="/api/v1")
 app.include_router(tenancy_router, prefix="/api/v1")
+app.include_router(catalog_router, prefix="/api/v1")
+app.include_router(inventory_router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["System"], status_code=status.HTTP_200_OK)
